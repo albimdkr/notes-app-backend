@@ -1,10 +1,10 @@
 const { nanoid } = require ('nanoid');
-const notes = require('./notes');
+const notes = require('../notes');
 
 const addNoteHandlers = (request, h) => {
     const { title,tags, body } = request.payload;
 
-    const id = nano(16);
+    const id = nanoid(16);
 
     const createdAt = new Date().toISOString();
     const updatedAt = createdAt;
@@ -17,7 +17,7 @@ const addNoteHandlers = (request, h) => {
     const isSucess = notes.filter((note) => note.id === id).length > 0;
 
     if (isSucess) {
-        const response = h.request({
+        const response = h.response({
             status: 'success',
             message: 'catatan berhasil di tambahkan',
             data: {
@@ -28,7 +28,7 @@ const addNoteHandlers = (request, h) => {
         return response;
     }
 
-    const response = h.request({
+    const response = h.response({
         status: 'fail',
         message: 'Catatan gagal ditambahkan'
     });

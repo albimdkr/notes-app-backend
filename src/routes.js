@@ -1,16 +1,16 @@
-const  { addNoteHandlers } = require('./handlers');
+const  { addNoteHandlers } = require('./handlers/addNoteHandlers');
 
 const routes = [
   {
     method: 'POST',
     path: '/notes',
     handler: addNoteHandlers,
-    // option: {
-    //   cors: {
-    //     origin: ['*'],
-    //   }
-    // }
   },
+  {
+    method: 'GET',
+    path: '/notes',
+    handler: () => {},
+  }
 ];
 
 module.exports = routes;
