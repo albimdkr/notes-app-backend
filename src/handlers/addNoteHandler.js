@@ -2,7 +2,7 @@ const { nanoid } = require ('nanoid');
 const notes = require('../notes');
 
 const addNoteHandler = (request, h) => {
-    const { title,tags, body } = request.payload;
+    const { title, tags, body } = request.payload;
 
     const id = nanoid(16);
 
@@ -19,7 +19,7 @@ const addNoteHandler = (request, h) => {
     if (isSucess) {
         const response = h.response({
             status: 'success',
-            message: 'catatan berhasil di tambahkan',
+            message: 'Catatan berhasil ditambahkan',
             data: {
                 noteId: id,
             },
